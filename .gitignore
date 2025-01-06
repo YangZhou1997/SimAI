@@ -8,3 +8,7 @@ test/log/
 *.log
 .cur*
 .DS_Store
+
+HPN_*
+*.csv
+*.txt
