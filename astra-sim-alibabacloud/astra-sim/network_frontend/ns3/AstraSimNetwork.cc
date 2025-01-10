@@ -215,6 +215,7 @@ struct user_param {
   string workload;
   string network_topo;
   string network_conf;
+  string result_path;
   user_param() {
     thread = 1;
     workload = "";
@@ -226,7 +227,7 @@ struct user_param {
 
 static int user_param_prase(int argc,char * argv[],struct user_param* user_param){
   int opt;
-  while ((opt = getopt(argc,argv,"ht:w:g:s:n:c:"))!=-1){
+  while ((opt = getopt(argc,argv,"ht:w:g:s:n:c:r:"))!=-1){
     switch (opt)
     {
     case 'h':
@@ -248,6 +249,9 @@ static int user_param_prase(int argc,char * argv[],struct user_param* user_param
       break;
     case 'c':
       user_param->network_conf = optarg;
+      break;
+    case 'r':
+      user_param->result_path = optarg;
       break;
     default:
       std::cerr<<"-h    help message"<<std::endl;
@@ -307,7 +311,7 @@ int main(int argc, char *argv[]) {
         1,          
         1,
         0,                 
-        RESULT_PATH, 
+        user_param.result_path, 
         "test1",            
         true,               
         false,               
