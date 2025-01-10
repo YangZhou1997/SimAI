@@ -9,6 +9,6 @@ test/log/
 .cur*
 .DS_Store
 
-HPN_*
-*.csv
-*.txt
+/HPN_*
+/*.csv
+/*.txt
